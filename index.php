@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="style.css">
     <title>Document</title>
-<!--<style>
+<style>
         .container{
     display: flex;
     justify-content: center;
@@ -74,8 +74,11 @@ table, th, td{
 tr:nth-child(even){
     background-color:#D6EEEE;
 }
+#checked{
+    margin-left:5px;
+}
     </style>
-    -->
+    
 </head>
 <body>
 
@@ -111,8 +114,11 @@ tr:nth-child(even){
                             ?>
                        
                        <tr>
-                       <th><span><input type='checkbox' ></span><?php echo $row["task"]?></th>
-                       <th><?php echo $row["time"]?></th>
+                       <th id="strike"><span><form method="post">
+                        <input type='checkbox'  name="deletee" id="checked">
+                        </form>
+                    </span><p id="task" class="child"><?php echo $row["task"]?></p></th>
+                       <th id="time"><?php echo $row["time"]?></th>
                        
                        <th colspan ='2'><form method="post">
                        <button id ='two' type='submit' name='deletee' value=<?php echo $row['id']?>>DELETE</button>
@@ -160,6 +166,8 @@ tr:nth-child(even){
         $conn->close();
     }
     ?>
+    <script src="main.js"></script>
+    <script src="index.js"></script>
 </body>
 
 </html>
